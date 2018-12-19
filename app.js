@@ -1,26 +1,30 @@
 const express = require('express');
 const http = require('http');
 const mongoose = require('mongoose');
-const cors = require('cors');
-const passport = require('passport')
-const bodyParser = require('body-parser')
+// const cors = require('cors');
+// const passport = require('passport')
+// const bodyParser = require('body-parser')
 
-const router = require('./router/routes')
+const Vaccine = require('./models/Vaccine.js')
+const User = require('./models/User.js')
+const MemberProfile = require('./models/MemberProfile.js')
+
+// const router = require('./router/routes')
 
 const app = express();
 
-app.use(bodyParser.json())
-app.use(cors())
-router(app)
+// app.use(bodyParser.json())
+// app.use(cors())
+// router(app)
 
 const server = http.createServer(app)
 const port = 5000
 
 console.log('Connecting to Local Database.');
-mongoose.connect('mongodb://localhost/users', { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost/dont-die-db', { useNewUrlParser: true })
 
 server.listen(port)
 console.log(`NodeJS Server running on port ${port}.`);
 
-exports.User = require('./User')
-exports.MemberProfile = require('./MemberProfile')
+// exports.User = require('./User')
+// exports.MemberProfile = require('./MemberProfile')
