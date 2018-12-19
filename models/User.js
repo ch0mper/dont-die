@@ -16,4 +16,22 @@ const userSchema = new Schema({
 
 const User = mongoose.model('User', userSchema)
 
+User.find({}, (err, users) => {
+  if (err) {
+    console.log(err);
+  } else if (users.length === 0) {
+    const user1 = new User({
+      email: 'megan@example.com',
+      password: '1234'
+    })
+    const user2 = new User({
+      email: 'barbara@example.com',
+      password: '1234'
+    })
+    user1.save()
+    user2.save()
+    console.log('Seeded DB with 2 new users.');
+  }
+})
+
 module.exports = User;
