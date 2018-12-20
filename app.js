@@ -7,15 +7,15 @@ const bodyParser = require('body-parser')
 
 const Vaccine = require('./models/Vaccine.js')
 const User = require('./models/User.js')
-const MemberProfile = require('./models/MemberProfile.js')
+const Profile = require('./models/Profile.js')
 
 const router = require('./router/routes')
 
-const app = express();
+const app = express(); // new instance of express which helps manage app <--> browser
 
 app.use(bodyParser.json())
 app.use(cors())
-router(app) // runs router
+router(app) // runs routers
 
 const server = http.createServer(app)
 const port = 5000

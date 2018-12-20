@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// User has many Members
+// User has many profiles
 // all the profiles and records
 // should be dependent on user so when user is deleted, member profiles are deleted
 
-const memberProfileSchema = new Schema({
+const profileSchema = new Schema({
   firstName: {type: String, required: true},
   lastName: {type: String, required: true},
   birthday: {type: Date},
@@ -23,6 +23,6 @@ const memberProfileSchema = new Schema({
     }
 })
 
-const MemberProfile = mongoose.model('MemberProfile', memberProfileSchema)
+const Profile = mongoose.model('Profile', profileSchema)
 
-module.exports = MemberProfile;
+module.exports = Profile;
