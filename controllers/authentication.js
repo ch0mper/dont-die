@@ -25,7 +25,7 @@ exports.signup = (req, res, next) => {
       return next(err)
     }
     if (existingUser) {
-      return res.status(422).send({ error: 'Email is already in use.'})
+      return res.status(422).send({ error: 'DID YOU FORGET? Email is already in use.'})
     }
 
     const user = new User({
