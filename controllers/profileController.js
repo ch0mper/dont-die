@@ -1,14 +1,14 @@
-const MemberProfile = require('../models/MemberProfile.js')
+const Profile = require('../models/Profile.js')
 
 exports.readAll = (req, res, next) => {
-  MemberProfile.find((err, members) => {
+  Profile.find((err, profiles) => {
     if (err) {
       res.status(500).json({
         success: false,
         error: err
       })
     } else {
-      res.status(200).json(members)
+      res.status(200).json(profiles)
     }
   })
 }
