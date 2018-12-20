@@ -34,14 +34,14 @@ pry = require('pryjs')
   await Profile.deleteMany()
   const profile1 = new Profile({
     firstName: 'megan',
-    lastName: '1234',
+    lastName: 'farley',
     userId: user1._id,
     vaccinesId: [vaccines[0]._id, vaccines[1]._id]
   })
   const profile2 = new Profile({
     firstName: 'barbara',
-    lastName: '1234',
-    userId: user1._id
+    lastName: 'decares',
+    userId: user1._id,
     vaccinesId: [vaccines[0]._id, vaccines[1]._id, vaccines[2]._id]
   })
   await profile1.save()

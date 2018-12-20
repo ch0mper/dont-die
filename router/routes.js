@@ -13,8 +13,12 @@ module.exports = (app) => {
   app.post('/api/user/signup', Authentication.signup)
   app.post('/api/user/signin', requireSignin, Authentication.signin)
 
-  app.get('/api/test', (req, res) => {
-    res.send({msg: 'oh hai!'})
+  app.get('/api/test-noauth', (req, res) => {
+    res.send({msg: '축하해~~ 똥똥'})
+  })
+
+  app.get('/api/test', requireAuth, (req, res) => {
+    res.send({msg: 'shiz be awtenticated. (인증 된)'})
   })
 
   app.get('/api/users', userController.readAll)
