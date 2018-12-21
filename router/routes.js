@@ -33,8 +33,8 @@ module.exports = (app) => {
   }
 
 
-  app.post('/api/user/signup', Authentication.signup)
-  app.post('/api/user/signin', requireSignin, Authentication.signin)
+  app.post('/api/users/signup', Authentication.signup)
+  app.post('/api/users/signin', requireSignin, Authentication.signin)
 
   app.get('/api/test-noauth', (req, res) => {
     res.send({msg: '축하해~~ 똥똥'})
@@ -43,6 +43,8 @@ module.exports = (app) => {
   app.get('/api/test', requireAuth, (req, res) => {
     res.send({msg: 'shiz be awtenticated. (인증 된)'})
   })
+
+  app.get('/api/users/:id/profiles', controllers["profiles"].filteredProfiles)
 
   resources('users')
   resources('profiles')
