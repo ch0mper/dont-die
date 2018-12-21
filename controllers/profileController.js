@@ -1,6 +1,6 @@
 const Profile = require('../models/Profile.js')
 
-exports.readAll = (req, res, next) => {
+exports.index = (req, res, next) => {
   Profile.find((err, profiles) => {
     if (err) {
       res.status(500).json({
