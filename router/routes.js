@@ -1,8 +1,9 @@
 const controllers = {
-  users: require('../controllers/userController')
+  users: require('../controllers/userController'),
+  vaccines: require('../controllers/vaccineController'),
+  profiles: require('../controllers/profileController')
 }
-const profileController = require('../controllers/profileController');
-const vaccineController = require('../controllers/vaccineController');
+
 const Authentication = require('../controllers/authentication')
 
 const passport = require('../services/passport')
@@ -15,19 +16,19 @@ module.exports = (app) => {
   const resources = (name) => {
 
     //INDEX
-    app.get(`/api/${name}`, controllers[name].index)
+    if(typeof controllers[name].index == 'function') app.get(`/api/${name}`, controllers[name].index)
 
     // SHOW
-    app.get(`/api/${name}/:id`, controllers[name].show)
+    if(typeof controllers[name].show == 'function') app.get(`/api/${name}/:id`, controllers[name].show)
 
     // UPDATE
-    app.patch(`/api/${name}/:id`, controllers[name].update)
+    if(typeof controllers[name].update == 'function') app.patch(`/api/${name}/:id`, controllers[name].update)
 
     // CREATE
-    app.post(`/api/${name}`, controllers[name].create)
+    if(typeof controllers[name].create == 'function') app.post(`/api/${name}`, controllers[name].create)
 
     // DESTROY
-    app.delete(`/api/${name}/:id`, controllers[name].delete)
+    if(typeof controllers[name].delete == 'function') app.delete(`/api/${name}/:id`, controllers[name].delete)
 
   }
 
@@ -43,11 +44,7 @@ module.exports = (app) => {
     res.send({msg: 'shiz be awtenticated. (인증 된)'})
   })
 
-  // app.get('/api/users', userController.readAll)
-  // app.get('/api/users/:id', userController.findById)
-
   resources('users')
-
-  app.get('/api/profiles', profileController.readAll)
-  app.get('/api/vaccines', vaccineController.readAll)
+  resources('profiles')
+  resources('vaccines')
 }
