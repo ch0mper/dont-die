@@ -4,6 +4,8 @@ mongoose.connect('mongodb://localhost/dont-die-db', { useNewUrlParser: true })
 let Vaccine = require('./models/Vaccine.js')
 let Profile = require('./models/Profile.js')
 let User = require('./models/User.js')
+let Record = require('./models/Record.js')
+
 
 pry = require('pryjs')
 
@@ -35,19 +37,38 @@ pry = require('pryjs')
   const profile1 = new Profile({
     firstName: 'william',
     lastName: 'farley',
-    userId: user1._id,
-    vaccinesId: [vaccines[0]._id, vaccines[1]._id]
+    userId: user1._id
+    // vaccinesId: [vaccines[0]._id, vaccines[1]._id]
   })
   const profile2 = new Profile({
     firstName: 'hannah',
     lastName: 'farley',
-    userId: user1._id,
-    vaccinesId: [vaccines[0]._id, vaccines[1]._id, vaccines[2]._id]
+    userId: user1._id
+    // vaccinesId: [vaccines[0]._id, vaccines[1]._id, vaccines[2]._id]
   })
   await profile1.save()
   await profile2.save()
   console.log('Seeded DB with 2 new profiles.');
   profiles = await Profile.find({})
+
+  await Record.deleteMany()
+  const record1 = new Record({
+    profileId: profile1._id,
+    vaccineId: vaccines[0]._id
+  })
+  const record2 = new Record({
+    profileId: profile1._id,
+    vaccineId: vaccines[1]._id
+  })
+  const record3 = new Record({
+    profileId: profile2._id,
+    vaccineId: vaccines[1]._id
+  })
+  await record1.save()
+  await record2.save()
+  await record3.save()
+  console.log('Seeded DB with 3 new records.');
+  records = await Record.find({})
 
   eval(pry.it)
 })()

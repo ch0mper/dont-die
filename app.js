@@ -8,6 +8,7 @@ const bodyParser = require('body-parser')
 const Vaccine = require('./models/Vaccine.js')
 const User = require('./models/User.js')
 const Profile = require('./models/Profile.js')
+const Record = require('./models/Record.js')
 
 const router = require('./router/routes')
 
