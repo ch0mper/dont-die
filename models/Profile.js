@@ -11,12 +11,6 @@ const profileSchema = new Schema({
   birthday: {type: Date},
   gender: {type: String},
   location: {type: String},
-  vaccinesId: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Vaccine'
-    }
-  ],
   userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User'

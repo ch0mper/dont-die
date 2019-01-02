@@ -1,7 +1,9 @@
 const controllers = {
   users: require('../controllers/userController'),
   vaccines: require('../controllers/vaccineController'),
-  profiles: require('../controllers/profileController')
+  profiles: require('../controllers/profileController'),
+  records: require('../controllers/recordController')
+
 }
 
 const Authentication = require('../controllers/authentication')
@@ -46,10 +48,8 @@ module.exports = (app) => {
 
   app.get('/api/users/:id/profiles', controllers["profiles"].filteredProfiles)
 
-  app.get('/api/users/:id/:profile_id/vaccines', controllers["vaccines"].filteredVaccines)
-
-
   resources('users')
   resources('profiles')
   resources('vaccines')
+  resources('records')
 }
