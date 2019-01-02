@@ -46,6 +46,9 @@ module.exports = (app) => {
 
   app.get('/api/users/:id/profiles', controllers["profiles"].filteredProfiles)
 
+  app.get('/api/users/:id/:profile_id/vaccines', controllers["vaccines"].filteredVaccines)
+
+
   resources('users')
   resources('profiles')
   resources('vaccines')
