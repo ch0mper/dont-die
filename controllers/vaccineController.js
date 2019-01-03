@@ -60,8 +60,7 @@ exports.create = async (req, res, next) => {
 
 }
 
-exports.filteredVaccines = async (req, res, next) => {
-  //use decoded token for userId to pass into find
-  let vaccines = await Vaccine.find({profileId: req.params.id})
-  res.json(vaccines)
-}
+// exports.filteredVaccines = async (req, res, next) => {
+//   let vaccines = await Vaccine.find({profileId: req.params.id})
+//   res.json(vaccines)
+// }
