@@ -39,7 +39,7 @@ exports.signup = (req, res, next) => {
       }
       user.password = 'HIDDEN'
       token = tokenForUser(user)
-      res.json({token: token})
+      res.json({token: token, id: user._id})
     })
   })
 }
