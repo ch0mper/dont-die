@@ -60,7 +60,6 @@ exports.create = async (req, res, next) => {
 }
 
 exports.filteredProfiles = async (req, res, next) => {
-  //use decoded token for userId to pass into find
   let profiles = await Profile.find({userId: req.params.id})
   res.json(profiles)
 }

@@ -49,7 +49,6 @@ exports.delete = async (req, res, next) => {
 }
 
 exports.create = async (req, res, next) => {
-
   let record = new Record({
     email: req.body.email,
     password: req.body.password
@@ -57,4 +56,9 @@ exports.create = async (req, res, next) => {
   await record.save()
   res.json(record)
 
+}
+
+exports.filteredVaccines = async (req, res, next) => {
+  let vaccines = await Vaccine.find({profileId: req.params.id})
+  res.json(vaccines)
 }
