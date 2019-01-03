@@ -59,8 +59,3 @@ exports.create = async (req, res, next) => {
   res.json(vaccine)
 
 }
-
-// exports.filteredVaccines = async (req, res, next) => {
-//   let vaccines = await Vaccine.find({profileId: req.params.id})
-//   res.json(vaccines)
-// }

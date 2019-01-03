@@ -58,7 +58,7 @@ exports.create = async (req, res, next) => {
 
 }
 
-exports.filteredVaccines = async (req, res, next) => {
-  let vaccines = await Vaccine.find({profileId: req.params.id})
-  res.json(vaccines)
+exports.filteredRecords = async (req, res, next) => {
+  let records = await Record.find({profileId: req.params.id})
+  res.json(records)
 }
