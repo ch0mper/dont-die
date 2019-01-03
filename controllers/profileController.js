@@ -51,8 +51,12 @@ exports.delete = async (req, res, next) => {
 exports.create = async (req, res, next) => {
 
   let profile = new Profile({
-    email: req.body.email,
-    password: req.body.password
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    birthdate: req.body.birthdate,
+    gender: req.body.gender,
+    location: req.body.location,
+    userId: req.body.userId
   })
   await profile.save()
   res.json(profile)

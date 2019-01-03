@@ -8,7 +8,7 @@ const Schema = mongoose.Schema;
 const profileSchema = new Schema({
   firstName: {type: String, required: true},
   lastName: {type: String, required: true},
-  birthday: {type: Date},
+  birthdate: {type: Date},
   gender: {type: String},
   location: {type: String},
   userId: {
