@@ -1,16 +1,15 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // age.length is number of doses needed, and is in months
 
 const vaccineSchema = new Schema({
-  name: {type: String, unique: true, lowercase: true, required: true},
-  age: {type: Number},
-  disease_description: {type: String},
-  isRequired: {type: Boolean}
-})
+  name: { type: String, unique: true, lowercase: true, required: true },
+  age: { type: Number },
+  disease_description: { type: String }
+});
 
-const Vaccine = mongoose.model('Vaccine', vaccineSchema)
+const Vaccine = mongoose.model("Vaccine", vaccineSchema);
 
 // Vaccine.find({}, (err, vaccines) => {
 //   if (err) {
