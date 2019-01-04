@@ -74,7 +74,7 @@ pry = require('pryjs')
 })()
 
 const vaccineSeeds = [{
-    name: 'Hepatisis (HepB)',
+    name: 'Hepatisis (HepB) (1/3)',
     age: [2, 4, 6],
     disease_description: 'chronic liver disease',
     isRequired: true
