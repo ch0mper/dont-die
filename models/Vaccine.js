@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const vaccineSchema = new Schema({
   name: {type: String, unique: true, lowercase: true, required: true},
-  age: [{type: Number}],
+  age: {type: Number},
   disease_description: {type: String},
   isRequired: {type: Boolean}
 })
