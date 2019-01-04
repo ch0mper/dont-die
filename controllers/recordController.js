@@ -50,8 +50,8 @@ exports.delete = async (req, res, next) => {
 
 exports.create = async (req, res, next) => {
   let record = new Record({
-    email: req.body.email,
-    password: req.body.password
+    vaccineId: req.body.vaccineId,
+    profileId: req.body.profileId
   })
   await record.save()
   res.json(record)
