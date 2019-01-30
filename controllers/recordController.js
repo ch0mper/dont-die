@@ -2,8 +2,11 @@ const Record = require('../models/Record.js')
 
 let catchAsync = promise => {
   return new Promise( (resolve) => {
-    promise.then( result => resolve([ null, result]))
-    promise.catch( error => resolve([ error, null ]))
+    promise.then(
+      result => resolve([ null, result]),
+      error => {
+        resolve([ error, null ])
+      })
   })
 }
 

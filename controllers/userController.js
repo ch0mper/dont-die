@@ -2,11 +2,13 @@ const User = require('../models/User.js')
 
 let catchAsync = promise => {
   return new Promise( (resolve) => {
-    promise.then( result => resolve([ null, result]))
-    promise.catch( error => resolve([ error, null ]))
+    promise.then(
+      result => resolve([ null, result]),
+      error => {
+        resolve([ error, null ])
+      })
   })
 }
-
 
 exports.index = async (req, res, next) => {
   let [ err, users ]  = await catchAsync(User.find())
